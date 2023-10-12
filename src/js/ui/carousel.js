@@ -2,6 +2,8 @@ import { createNewElement } from "../utils";
 import { api } from "../utils/api";
 
 export async function initCarousel() {
+    const items = await api.getAllTitles("?limit=10");
+
     const carousel = createNewElement("div", { className: "carousel" });
 
     const leftButton = createNewElement("button", { className: "arrow left-arrow", onclick: () => moveCarousel(leftButton, carouselContainer, cards) });
@@ -9,7 +11,7 @@ export async function initCarousel() {
     leftButton.appendChild(leftChevron);
 
     const carouselContainer = createNewElement("div", { className: "carousel-container" });
-    const cards = await buildCards();
+    const cards = buildCards(items);
     cards.forEach((card) => carouselContainer.appendChild(card));
 
     const rightButton = createNewElement("button", { className: "arrow right-arrow", onclick: () => moveCarousel(rightButton, carouselContainer, cards) });
@@ -23,9 +25,7 @@ export async function initCarousel() {
     return carousel;
 }
 
-async function buildCards() {
-    const items = await api.getAllTitles("?limit=10");
-
+function buildCards(items) {
     const cards = items.results.map((item) => {
         const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}`, className: "image-container" });
         const img = createNewElement("img", {
