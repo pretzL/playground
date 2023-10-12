@@ -25,7 +25,7 @@ export async function initCarousel() {
 
 async function buildCards() {
     const items = await api.getAllTitles("?limit=10");
-    console.log(items);
+
     const cards = items.results.map((item) => {
         const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}` });
         const img = createNewElement("img", { src: item.primaryImage?.url, alt: item.originalTitleText?.text });
