@@ -1,6 +1,9 @@
+import { initCarousel } from "../../ui/carousel";
 import { createNewElement } from "../../utils";
 
-export function buildMain() {
-    const div = createNewElement("div", { className: "test-class", style: { backgroundColor: "red" }, onclick: () => alert("Clicked!"), textContent: "Main page!" });
-    return div;
+export async function buildMain() {
+    const section = createNewElement("section", { className: "carousel-section", style: { width: "100%" } });
+    const carousel = await initCarousel();
+    section.appendChild(carousel);
+    return section;
 }
