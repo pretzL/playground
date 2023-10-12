@@ -1,4 +1,4 @@
-function createNewElement(type, props = {}) {
+export function createNewElement(type, props = {}) {
     const elem = document.createElement(type);
     const { style, className, classList, innerText, textContent, ...attributes } = props;
     Object.assign(elem, attributes);
@@ -25,7 +25,3 @@ function createNewElement(type, props = {}) {
 
     return elem;
 }
-
-const div = createNewElement("div", { className: "test-class", style: { backgroundColor: "red" }, onclick: () => alert("Clicked!"), textContent: "Hello world!" });
-const body = document.querySelector("body");
-body.appendChild(div);
