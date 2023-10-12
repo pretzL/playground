@@ -20,6 +20,5 @@ async function route() {
 
 export default async () => {
     const view = await route();
-    console.log(view);
     renderView(view);
 };
