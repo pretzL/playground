@@ -132,6 +132,45 @@ button:hover {
     object-fit: cover;
 }
 
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container .carousel-image {
+    display: block;
+    width: 100%;
+}
+
+.image-container:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, black, transparent 50%);
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.image-container .image-label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-container:hover .image-label {
+    opacity: 1;
+    visibility: visible;
+}
+
 .arrow {
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 2;

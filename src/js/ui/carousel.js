@@ -27,9 +27,18 @@ async function buildCards() {
     const items = await api.getAllTitles("?limit=10");
 
     const cards = items.results.map((item) => {
-        const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}` });
-        const img = createNewElement("img", { src: item.primaryImage?.url, alt: item.originalTitleText?.text });
+        const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}`, className: "image-container" });
+        const img = createNewElement("img", {
+            src: item.primaryImage?.url,
+            alt: item.originalTitleText?.text,
+            className: "carousel-image",
+        });
+        const label = createNewElement("div", {
+            className: "image-label",
+            textContent: `${item.originalTitleText?.text} (${item.releaseYear.year})`,
+        });
         anchor.appendChild(img);
+        anchor.appendChild(label);
         return anchor;
     });
 
