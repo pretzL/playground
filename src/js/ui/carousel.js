@@ -10,7 +10,7 @@ export async function initCarousel() {
 
     const carouselContainer = createNewElement("div", { className: "carousel-container" });
     const cards = await buildCards();
-    cards.map((card) => carouselContainer.appendChild(card));
+    cards.forEach((card) => carouselContainer.appendChild(card));
 
     const rightButton = createNewElement("button", { className: "arrow right-arrow", onclick: () => moveCarousel(rightButton, carouselContainer, cards) });
     const rightChevron = createNewElement("span", { className: "material-icons", textContent: "chevron_right" });
