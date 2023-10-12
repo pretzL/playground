@@ -82,6 +82,7 @@ button {
     line-height: 1;
     cursor: pointer;
     text-align: center;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 
