@@ -4,7 +4,12 @@ import { getSearchParams } from "./searchParams";
 
 async function route() {
     const { view } = getSearchParams();
+
     switch (view) {
+        case undefined:
+            return buildMain();
+        case null:
+            return buildMain();
         case "":
             return buildMain();
         case "home":
