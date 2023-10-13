@@ -10,7 +10,6 @@ export async function buildMain() {
 
     const topRated250Title = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated" });
     const topRated250 = await api.getAllTitles("?limit=10&info=base_info&list=top_rated_english_250");
-    console.log(topRated250);
     const carouselTopRated250 = initCarousel(topRated250);
 
     section.appendChild(topBoxOfficeLastWeekendTitle);
