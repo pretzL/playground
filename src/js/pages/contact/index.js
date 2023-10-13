@@ -7,10 +7,12 @@ export function buildContact() {
     });
     const nameInput = createNewElement("input", { className: "form-input", placeholder: "Name", type: "text" });
     const emailInput = createNewElement("input", { className: "form-input", placeholder: "Email", type: "email" });
+    const subjectInput = createNewElement("input", { className: "form-input", placeholder: "Subject", type: "text" });
     const messageInput = createNewElement("textarea", { className: "form-input", placeholder: "Message", style: { resize: "none", height: "150px" } });
 
     form.appendChild(nameInput);
     form.appendChild(emailInput);
+    form.appendChild(subjectInput);
     form.appendChild(messageInput);
 
     return form;
