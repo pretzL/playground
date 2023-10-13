@@ -9,11 +9,11 @@ export async function buildDetails(id) {
 function generateHTML(title) {
     const container = createNewElement("div", { className: "details-container" });
 
-    const img = createNewElement("img", { src: title.primaryImage?.url, alt: title.originalTitleText?.text });
-    const titleText = createNewElement("h1", { textContent: title.originalTitleText?.text });
-    const releaseYear = createNewElement("h2", { textContent: title.releaseYear?.year });
-    const plot = createNewElement("p", { textContent: title.plot?.plotText.plainText });
-    const runtime = createNewElement("p", { textContent: title.runtime?.displayableProperty?.value.plainText });
+    const img = createNewElement("img", { src: title.primaryImage?.url, alt: title.originalTitleText?.text ?? title.titleText?.text });
+    const titleText = createNewElement("h1", { textContent: title.originalTitleText?.text ?? title.titleText?.text });
+    const releaseYear = createNewElement("h2", { textContent: title.releaseYear?.year ?? "N/A" });
+    const plot = createNewElement("p", { textContent: title.plot?.plotText?.plainText ?? "No plot available." });
+    const runtime = createNewElement("p", { textContent: title.runtime?.displayableProperty?.value.plainText ?? "Unknown runtime" });
     const genresList = title.genres?.genres.map((genre) => genre.text).join(", ");
     const genres = createNewElement("p", { textContent: genresList });
 
