@@ -1,9 +1,10 @@
 import { build404, buildAbout, buildContact, buildMain } from "../pages";
+import { buildDetails } from "../pages/details";
 import { renderView } from "../ui/renderView";
 import { getSearchParams } from "./searchParams";
 
 async function route() {
-    const { view } = getSearchParams();
+    const { view, id } = getSearchParams();
 
     switch (view) {
         case undefined:
@@ -18,6 +19,8 @@ async function route() {
             return buildAbout();
         case "contact":
             return buildContact();
+        case "details":
+            return buildDetails(id);
         default:
             return build404();
     }

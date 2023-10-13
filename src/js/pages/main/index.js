@@ -6,11 +6,11 @@ export async function buildMain() {
     const section = createNewElement("section", { className: "carousel-section", style: { width: "100%" } });
 
     const topBoxOfficeLastWeekendTitle = createNewElement("h2", { className: "carousel-title", textContent: "Top Box Office Last Weekend" });
-    const topBoxOfficeLastWeekend = await api.getAllTitles("?limit=10&list=top_boxoffice_last_weekend_10");
+    const topBoxOfficeLastWeekend = await api.getAllTitles("?limit=10&info=base_info&list=top_boxoffice_last_weekend_10");
     const carouselTopBoxOfficeLastWeekend = initCarousel(topBoxOfficeLastWeekend);
 
-    const topRated250Title = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated 250" });
-    const topRated250 = await api.getAllTitles("?limit=10&list=top_rated_english_250");
+    const topRated250Title = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated" });
+    const topRated250 = await api.getAllTitles("?limit=10&info=base_info&list=top_rated_english_250");
     console.log(topRated250);
     const carouselTopRated250 = initCarousel(topRated250);
 
