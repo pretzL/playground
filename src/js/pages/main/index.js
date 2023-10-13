@@ -1,6 +1,5 @@
 import { initCarousel } from "../../ui/carousel";
-import { createNewElement } from "../../utils";
-import { api } from "../../utils";
+import { api, createNewElement } from "../../utils";
 
 export async function buildMain() {
     const section = createNewElement("section", { className: "carousel-section", style: { width: "100%" } });
