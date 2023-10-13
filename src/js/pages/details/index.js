@@ -2,12 +2,11 @@ import { api, createNewElement } from "../../utils";
 
 export async function buildDetails(id) {
     const title = await api.getATitle(id, "?info=base_info");
-    console.log(title);
-    const container = await generateHTML(title.results);
+    const container = generateHTML(title.results);
     return container;
 }
 
-async function generateHTML(title) {
+function generateHTML(title) {
     const container = createNewElement("div", { className: "details-container" });
 
     const img = createNewElement("img", { src: title.primaryImage?.url, alt: title.originalTitleText?.text });
