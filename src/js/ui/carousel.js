@@ -1,9 +1,6 @@
 import { createNewElement } from "../utils";
-import { api } from "../utils/api";
 
-export async function initCarousel() {
-    const items = await api.getAllTitles("?limit=10");
-
+export function initCarousel(items) {
     const carousel = createNewElement("div", { className: "carousel" });
 
     const leftButton = createNewElement("button", { className: "arrow left-arrow", onclick: () => moveCarousel(leftButton, carouselContainer, cards) });
@@ -32,10 +29,11 @@ function buildCards(items) {
             src: item.primaryImage?.url,
             alt: item.originalTitleText?.text,
             className: "carousel-image",
+            onerror: () => (img.src = "https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"),
         });
         const label = createNewElement("div", {
             className: "image-label",
-            textContent: `${item.originalTitleText?.text} (${item.releaseYear.year})`,
+            textContent: `${item.originalTitleText?.text} (${item.releaseYear?.year ? item.releaseYear.year : "N/A"})`,
         });
         anchor.appendChild(img);
         anchor.appendChild(label);
