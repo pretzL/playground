@@ -8,13 +8,19 @@ export async function buildMain() {
     const topBoxOfficeLastWeekend = await api.getAllTitles("?limit=12&info=base_info&list=top_boxoffice_last_weekend_10");
     const carouselTopBoxOfficeLastWeekend = initCarousel(topBoxOfficeLastWeekend);
 
-    const topRated250Title = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated" });
+    const topRated250Title = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated Movies" });
     const topRated250 = await api.getAllTitles("?limit=12&info=base_info&list=top_rated_english_250");
     const carouselTopRated250 = initCarousel(topRated250);
+
+    const topSeriesTitle = createNewElement("h2", { className: "carousel-title", textContent: "Top Rated Series" });
+    const topSeries = await api.getAllTitles("?limit=12&info=base_info&list=top_rated_series_250");
+    const carouselTopSeries = initCarousel(topSeries);
 
     section.appendChild(topBoxOfficeLastWeekendTitle);
     section.appendChild(carouselTopBoxOfficeLastWeekend);
     section.appendChild(topRated250Title);
     section.appendChild(carouselTopRated250);
+    section.appendChild(topSeriesTitle);
+    section.appendChild(carouselTopSeries);
     return section;
 }

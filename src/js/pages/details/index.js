@@ -20,7 +20,7 @@ function generateHTML(title) {
     const plot = createNewElement("p", { textContent: title.plot?.plotText?.plainText ?? "No plot available." });
     const runtime = createNewElement("p", { textContent: title.runtime?.displayableProperty?.value.plainText ?? "Unknown runtime" });
     const genres = createNewElement("div", { className: "movie-genres", style: { display: "flex", gap: "0.5rem" } });
-    const genresList = title.genres?.genres.forEach((genre) => {
+    title.genres?.genres.forEach((genre) => {
         const singleGenre = createNewElement("p", { textContent: genre.text, style: { backgroundColor: "#000", color: "#fff", padding: "0.5rem", borderRadius: "0.5rem" } });
         genres.appendChild(singleGenre);
     });
