@@ -192,6 +192,27 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.details-container img {
+    width: 100%;
+}
+
+.details-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.movie-meta {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+}
+
+.movie-genres {
+    color: #666;
+}
+
 /* TABLET */
 
 @media only screen and (min-width: 767px) {
@@ -201,6 +222,10 @@ button:hover {
 
     .carousel-container > a {
         flex: 0 0 calc(100% / var(--items-per-screen));
+    }
+
+    .details-container {
+        grid-template-columns: 1fr 2fr;
     }
 }
 
