@@ -19,8 +19,11 @@ function generateHTML(title) {
     const releaseYear = createNewElement("h2", { textContent: `(${title.releaseYear?.year ?? "N/A"})` });
     const plot = createNewElement("p", { textContent: title.plot?.plotText?.plainText ?? "No plot available." });
     const runtime = createNewElement("p", { textContent: title.runtime?.displayableProperty?.value.plainText ?? "Unknown runtime" });
-    const genresList = title.genres?.genres.map((genre) => genre.text).join(", ");
-    const genres = createNewElement("p", { className: "movie-genres", textContent: genresList });
+    const genres = createNewElement("div", { className: "movie-genres", style: { display: "flex", gap: "0.5rem" } });
+    const genresList = title.genres?.genres.forEach((genre) => {
+        const singleGenre = createNewElement("p", { textContent: genre.text, style: { backgroundColor: "#000", color: "#fff", padding: "0.5rem", borderRadius: "0.5rem" } });
+        genres.appendChild(singleGenre);
+    });
 
     container.appendChild(img);
     movieMeta.appendChild(titleText);
