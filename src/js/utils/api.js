@@ -1,6 +1,9 @@
 const moviesDb = "https://moviesdatabase.p.rapidapi.com";
 const moviesDbKey = import.meta.env.VITE_MOVIESDATABASE_KEY;
 
+const streamingAvailability = "https://streaming-availability.p.rapidapi.com";
+const streamingAvailabilityKey = import.meta.env.VITE_STREAMINGAVAILABILITY_KEY;
+
 export const api = {
     getAllTitles: async (params = "") => {
         try {
@@ -8,7 +11,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -23,7 +26,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -38,7 +41,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -53,7 +56,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -68,7 +71,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -83,7 +86,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -98,7 +101,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -113,7 +116,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -128,7 +131,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -143,7 +146,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -158,7 +161,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -173,7 +176,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -188,7 +191,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -203,7 +206,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -218,7 +221,7 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
@@ -233,7 +236,41 @@ export const api = {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                },
+            });
+            const json = await req.json();
+            return json;
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+    getCountries: async (params = "") => {
+        try {
+            const req = await fetch(`${streamingAvailability}/countries${params}`, {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key": streamingAvailabilityKey,
+                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
+                },
+            });
+            const json = await req.json();
+            return json;
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+    getStreamingAvailability: async (id, params = "") => {
+        try {
+            if (params.startsWith("?")) {
+                params = params.replace("?", "&");
+            }
+
+            const req = await fetch(`${streamingAvailability}/get?output_language=en&imdb_id=${id}${params}`, {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key": streamingAvailabilityKey,
+                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
                 },
             });
             const json = await req.json();
