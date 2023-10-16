@@ -1,4 +1,4 @@
 export * from "./main";
-export * from "./about";
+export * from "./streaming";
 export * from "./contact";
 export * from "./404";

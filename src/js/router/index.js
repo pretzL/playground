@@ -1,4 +1,4 @@
-import { build404, buildAbout, buildContact, buildMain } from "../pages";
+import { build404, buildStreaming, buildContact, buildMain } from "../pages";
 import { buildDetails } from "../pages/details";
 import { renderView } from "../ui/renderView";
 import { getSearchParams } from "./searchParams";
@@ -15,8 +15,8 @@ async function route() {
             return buildMain();
         case "home":
             return buildMain();
-        case "about":
-            return buildAbout();
+        case "streaming":
+            return buildStreaming();
         case "contact":
             return buildContact();
         case "details":
