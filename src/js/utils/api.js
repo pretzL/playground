@@ -260,13 +260,32 @@ export const api = {
             throw new Error(error);
         }
     },
-    getStreamingAvailability: async (id, params = "") => {
+    getAvailabilityById: async (id, params = "") => {
         try {
             if (params.startsWith("?")) {
                 params = params.replace("?", "&");
             }
 
             const req = await fetch(`${streamingAvailability}/get?output_language=en&imdb_id=${id}${params}`, {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key": streamingAvailabilityKey,
+                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
+                },
+            });
+            const json = await req.json();
+            return json;
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+    getStreamingChanges: async (services, country, params = "") => {
+        try {
+            if (params.startsWith("?")) {
+                params = params.replace("?", "&");
+            }
+
+            const req = await fetch(`${streamingAvailability}/changes?change_type=new&services=${services}&target_type=show&country=${country}&output_language=en${params}`, {
                 method: "GET",
                 headers: {
                     "X-RapidAPI-Key": streamingAvailabilityKey,
