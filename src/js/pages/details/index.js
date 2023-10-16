@@ -13,7 +13,10 @@ function generateHTML(title) {
     const img = createNewElement("img", {
         src: title.primaryImage?.url,
         alt: title.originalTitleText?.text ?? title.titleText?.text,
-        onerror: () => (img.src = "https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"),
+        onerror: () => {
+            img.onerror = null;
+            img.src = "https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png";
+        },
     });
     const titleText = createNewElement("h1", { textContent: title.originalTitleText?.text ?? title.titleText?.text });
     const releaseYear = createNewElement("h2", { textContent: `(${title.releaseYear?.year ?? "N/A"})` });
