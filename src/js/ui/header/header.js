@@ -9,9 +9,9 @@ export async function header() {
     ul.appendChild(createNavItem("Streaming", "streaming"));
     ul.appendChild(createNavItem("Contact", "contact"));
 
-    const { wrapper, dropdown, button } = await createDropdown();
-    ul.appendChild(wrapper);
-    wrapper.appendChild(dropdown);
+    // const { wrapper, dropdown, button } = await createDropdown();
+    // ul.appendChild(wrapper);
+    // wrapper.appendChild(dropdown);
 
     const headerElement = document.querySelector("header");
     headerElement.appendChild(ul);
