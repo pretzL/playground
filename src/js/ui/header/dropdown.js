@@ -1,29 +1,7 @@
-import { setSearchParams } from "../router/searchParams";
-import { api, createNewElement } from "../utils";
-import * as storage from "../utils/storage/index.mjs";
+import { createNewElement, api } from "../../utils";
+import * as storage from "../../utils/storage/index.mjs";
 
-export async function header() {
-    const ul = createNewElement("ul", { className: "nav-ul", style: { display: "flex", gap: "1rem", paddingTop: "1rem" } });
-
-    // Home
-    const liHome = createNewElement("li", { className: "nav-li", style: { listStyleType: "none" } });
-    const homeAnchor = createNewElement("button", { textContent: "Home", onclick: () => setSearchParams({ view: "home" }) });
-    liHome.appendChild(homeAnchor);
-    ul.appendChild(liHome);
-
-    // Streaming
-    const liStreaming = createNewElement("li", { className: "nav-li", style: { listStyleType: "none" } });
-    const streamingAnchor = createNewElement("button", { textContent: "Streaming", onclick: () => setSearchParams({ view: "streaming" }) });
-    liStreaming.appendChild(streamingAnchor);
-    ul.appendChild(liStreaming);
-
-    // Contact
-    const liContact = createNewElement("li", { className: "nav-li", style: { listStyleType: "none" } });
-    const contactAnchor = createNewElement("button", { textContent: "Contact", onclick: () => setSearchParams({ view: "contact" }) });
-    liContact.appendChild(contactAnchor);
-    ul.appendChild(liContact);
-
-    // Dropdown
+export async function createDropdown() {
     const dropDownWrapper = createNewElement("li", { className: "dropdown-wrapper", style: { position: "relative", marginLeft: "auto", gap: "0.5rem" } });
 
     const savedCountry = storage.load("country");
@@ -31,7 +9,7 @@ export async function header() {
     const flagDropdownButton = createNewElement("button", {
         className: "flag-dropdown-button",
         onclick: () => (flagDropdown.style.display = flagDropdown.style.display === "none" ? "flex" : "none"),
-        style: { justifyContent: "space-between" },
+        style: { justifyContent: "space-between", width: "max-content", gap: "0.5rem" },
     });
 
     if (savedCountry) {
@@ -53,14 +31,9 @@ export async function header() {
     flagDropdownButton.appendChild(createNewElement("span", { className: "material-icons", textContent: "expand_more" }));
 
     dropDownWrapper.appendChild(flagDropdownButton);
-    ul.appendChild(dropDownWrapper);
-
-    const header = document.querySelector("header");
-    header.appendChild(ul);
 
     const countries = await api.getCountries();
     const countries_code = Object.values(countries.result);
-    console.log(countries_code);
 
     const flagDropdown = createNewElement("ul", {
         className: "flag-dropdown",
@@ -148,4 +121,10 @@ export async function header() {
     });
 
     dropDownWrapper.appendChild(flagDropdown);
+
+    return {
+        wrapper: dropDownWrapper,
+        dropdown: flagDropdown,
+        button: flagDropdownButton,
+    };
 }
