@@ -1,0 +1,1 @@
+a playground for testing creating a SPA in vanilla JS
